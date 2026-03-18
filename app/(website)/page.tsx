@@ -7,6 +7,7 @@ import {
   Mail,
   ChevronLeft,
   ChevronRight,
+  ArrowDown,
 } from "lucide-react";
 
 import Link from "next/link";
@@ -18,12 +19,19 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { experiences, projects, stackItems, leftServices, rightServices, testimonials } from "@/constant/data";
+import {
+  experiences,
+  projects,
+  stackItems,
+  leftServices,
+  rightServices,
+  testimonials,
+} from "@/constant/data";
 
 export default function Home() {
   return (
     <>
-      {/* --- HOME SECTION --- */}
+      {/* --- HERO SECTION --- */}
       <section className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center overflow-hidden">
         {/* bg effects */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
@@ -40,6 +48,9 @@ export default function Home() {
                 </span>
                 Available for new projects
               </div>
+              <h3 className="text-3xl text-slate-400 dark:text-slate-400 -mb-2">
+                Hello, I&apos;m
+              </h3>
               <h1 className="text-5xl md:text-6xl font-black leading-tight tracking-tighter text-slate-900 dark:text-white">
                 Muhammad Hussain
               </h1>
@@ -88,13 +99,31 @@ export default function Home() {
             </div>
             {/* right side */}
             <div className="flex justify-center md:justify-end order-1 md:order-2">
-              <div className="relative h-64 w-64 md:h-80 md:w-80 overflow-hidden rounded-full border-4 border-primary/20 p-2 bg-primary/5">
+              {/* button */}
+              <button
+                onClick={() =>
+                  window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                  })
+                }
+                className="absolute bottom-40 right-40 border-2 border-primary hover:bg-primary/20 rounded-full p-6 cursor-pointer animate-bounce group"
+              >
+                <ArrowDown
+                  size={30}
+                  className="text-primary group-hover:scale-110 transition-all duration-300"
+                />
+              </button>
+              {/* glow */}
+              <div className="absolute w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
+
+              <div className="relative h-64 w-64 md:h-96 md:w-96 overflow-hidden border-b-8 rounded-full border-primary p-2">
                 <Image
                   alt="Muhammad Hussain"
-                  src="/images/profile.png"
+                  src="/images/profile-without-bg.png"
                   fill
                   sizes="(min-width: 768px) 20rem, 16rem"
-                  className="rounded-full object-cover shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="object-cover shadow-2xl hover:scale-105 transition-all duration-300"
                 />
               </div>
             </div>
@@ -113,14 +142,14 @@ export default function Home() {
             {/* Heading */}
             <div>
               <h2 className="text-2xl md:text-4xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
-                My Journey
+                Meet the <br /> Developer
               </h2>
             </div>
 
             {/* Big Number */}
             <div className="mt-24 xl:ml-24 ml-10">
               <span className="relative text-[100px] md:text-[180px] lg:text-[240px] tracking-tighter text-white leading-none">
-                5<span className="absolute top-5 text-[100px] -mb-10">+</span>
+                2<span className="absolute top-5 text-[100px] -mb-10">+</span>
               </span>
               <span className="relative z-20 w-28 h-28 inline-flex items-center justify-center text-center text-sm -mt-10 -ml-10 bg-primary rounded-full text-white">
                 Years Of <br /> Experience
@@ -137,20 +166,24 @@ export default function Home() {
             </div>
 
             {/* Paragraph */}
-            <p className="max-w-md text-slate-400 leading-relaxed">
-              I am a passionate Full Stack Engineer with a deep love for
-              building digital products that solve real-world problems. My
-              journey into software development started with a curiosity for how
-              things work under the hood, which evolved into a career dedicated
-              to crafting seamless user experiences.
+            <p className="max-w-lg text-slate-400 leading-relaxed">
+              I’m a Computer Science graduate and MERN Stack Developer with a
+              strong interest in building modern and scalable web applications.
+              I have hands-on experience working with technologies like React,
+              Node.js, Express, and MongoDB to develop full-stack applications
+              and responsive user interfaces. I enjoy creating clean,
+              user-friendly solutions and integrating APIs to build dynamic
+              digital products.
             </p>
             {/* Paragraph */}
-            <p className="max-w-md text-slate-400 leading-relaxed">
-              Over the past 7 years, I&apos;ve had the privilege of working with
-              diverse teams, from agile startups to established enterprises. I
-              believe in the power of clean code, thoughtful architecture, and
-              continuous learning to stay at the forefront of the ever-evolving
-              tech landscape.
+            <p className="max-w-lg text-slate-400 leading-relaxed -mt-6">
+              My journey in software development started with curiosity about
+              how applications work behind the scenes. Since then, I have worked
+              on several projects including authentication systems, API-based
+              applications, and interactive web interfaces. I’m continuously
+              improving my backend development skills and exploring advanced
+              areas like scalable architectures and Artificial Intelligence
+              while contributing to real-world software projects.
             </p>
           </div>
         </div>
@@ -247,18 +280,12 @@ export default function Home() {
               className="group flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/10 hover:shadow-xl transition-all"
             >
               <div className="relative aspect-video w-full overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={project.preview}
                   alt={project.title}
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                {/* <Image
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                alt={project.title}
-                src={project.preview}
-                fill
-                sizes="(min-width: 768px) 33vw, 100vw"
-              /> */}
               </div>
               <div className="p-6 space-y-4">
                 <div className="flex flex-wrap gap-2">
@@ -423,6 +450,9 @@ export default function Home() {
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
+          }}
+          autoplay={{
+            delay: 2500,
           }}
           loop={true}
         >
