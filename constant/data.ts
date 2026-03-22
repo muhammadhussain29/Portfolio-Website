@@ -30,7 +30,27 @@ export const experiences = [
     },
   ];
   
-  export const projects = [
+  export type ProjectCategory =
+    | "full-stack"
+    | "frontend"
+    | "backend"
+    | "mobile";
+
+  export type ProjectItem = {
+    title: string;
+    tech: string[];
+    description: string;
+    features: string[];
+    preview: string;
+    github: string;
+    /** Shown on cards; defaults to first tech labels if omitted */
+    stackBadge?: string;
+    demo?: string;
+    featured?: boolean;
+    category: ProjectCategory;
+  };
+
+  export const projects: ProjectItem[] = [
     {
       title: "Solana Landing Page Clone",
       tech: ["React", "Tailwind CSS", "GSAP"],
@@ -44,6 +64,9 @@ export const experiences = [
       preview:
         "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
       github: "",
+      stackBadge: "React + GSAP",
+      featured: true,
+      category: "frontend",
     },
     {
       title: "FashionVista – E-commerce",
@@ -60,6 +83,8 @@ export const experiences = [
       preview:
         "https://images.pexels.com/photos/4464438/pexels-photo-4464438.jpeg",
       github: "",
+      stackBadge: "React + Vite",
+      category: "frontend",
     },
     {
       title: "WeatherWise",
@@ -75,6 +100,112 @@ export const experiences = [
       preview:
         "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
       github: "",
+      stackBadge: "React + API",
+      category: "full-stack",
+    },
+    {
+      title: "Solana Landing Page Clone",
+      tech: ["React", "Tailwind CSS", "GSAP"],
+      description:
+        "Recreated Solana’s official landing page to demonstrate GSAP animations, reusable component architecture, and cross-device responsiveness.",
+      features: [
+        "Scroll-based animations using GSAP",
+        "Reusable React components",
+        "Responsive design for multiple devices",
+      ],
+      preview:
+        "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+      github: "",
+      stackBadge: "React + GSAP",
+      featured: true,
+      category: "frontend",
+    },
+    {
+      title: "FashionVista – E-commerce",
+      tech: ["React", "Vite", "Tailwind CSS", "GSAP"],
+      description:
+        "Developed a modern responsive fashion brand landing page with engaging animations and product showcases.",
+      features: [
+        "Scroll-based animations",
+        "Product showcase sections",
+        "Blog and testimonials sections",
+        "FAQ section",
+        "Responsive UI design",
+      ],
+      preview:
+        "https://images.pexels.com/photos/4464438/pexels-photo-4464438.jpeg",
+      github: "",
+      stackBadge: "React + Vite",
+      category: "frontend",
+    },
+    {
+      title: "WeatherWise",
+      tech: ["React", "Tailwind CSS", "OpenWeatherMap API"],
+      description:
+        "Real-time weather dashboard with dynamic UI updates and theme toggling.",
+      features: [
+        "Real-time weather data",
+        "Search functionality",
+        "Dynamic UI updates",
+        "Dark/light theme toggle",
+      ],
+      preview:
+        "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
+      github: "",
+      stackBadge: "React + API",
+      category: "full-stack",
+    },
+    {
+      title: "Solana Landing Page Clone",
+      tech: ["React", "Tailwind CSS", "GSAP"],
+      description:
+        "Recreated Solana’s official landing page to demonstrate GSAP animations, reusable component architecture, and cross-device responsiveness.",
+      features: [
+        "Scroll-based animations using GSAP",
+        "Reusable React components",
+        "Responsive design for multiple devices",
+      ],
+      preview:
+        "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
+      github: "",
+      stackBadge: "React + GSAP",
+      featured: true,
+      category: "frontend",
+    },
+    {
+      title: "FashionVista – E-commerce",
+      tech: ["React", "Vite", "Tailwind CSS", "GSAP"],
+      description:
+        "Developed a modern responsive fashion brand landing page with engaging animations and product showcases.",
+      features: [
+        "Scroll-based animations",
+        "Product showcase sections",
+        "Blog and testimonials sections",
+        "FAQ section",
+        "Responsive UI design",
+      ],
+      preview:
+        "https://images.pexels.com/photos/4464438/pexels-photo-4464438.jpeg",
+      github: "",
+      stackBadge: "React + Vite",
+      category: "frontend",
+    },
+    {
+      title: "WeatherWise",
+      tech: ["React", "Tailwind CSS", "OpenWeatherMap API"],
+      description:
+        "Real-time weather dashboard with dynamic UI updates and theme toggling.",
+      features: [
+        "Real-time weather data",
+        "Search functionality",
+        "Dynamic UI updates",
+        "Dark/light theme toggle",
+      ],
+      preview:
+        "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg",
+      github: "",
+      stackBadge: "React + API",
+      category: "full-stack",
     },
   ];
   
