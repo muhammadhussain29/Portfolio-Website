@@ -1,8 +1,9 @@
 "use client";
 
-import { experiences } from "@/constant/data";
+import HeroSection from "@/components/website/HeroSection";
+import CTA from "@/components/website/CTA";
+import Experience from "@/components/website/Experience";
 import {
-  ArrowRight,
   BotIcon,
   BrainIcon,
   Calendar,
@@ -13,37 +14,17 @@ import {
   TerminalIcon,
   TrendingUpIcon,
 } from "lucide-react";
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <>
       {/* HERO SECTION */}
-      <section
-        className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
-        id="hero"
-      >
-        {/* <!-- Background Accents --> */}
-        <div className="absolute blur-3xl -z-10 opacity-40 top-0 -right-20 w-[500px] h-[500px] bg-primary rounded-full"></div>
-        <div className="absolute blur-3xl -z-10 opacity-40 bottom-0 -left-20 w-[400px] h-[400px] bg-blue-900 rounded-full"></div>
-        {/* <!-- Floating Shapes --> */}
-        <div className="absolute top-1/4 left-10 w-12 h-12 border border-blue-500/30 rounded-lg animate-float rotate-12 hidden md:block"></div>
-        <div className="absolute bottom-1/4 right-10 w-16 h-16 border border-primary/20 rounded-full animate-float delay-700 hidden md:block"></div>
-
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider uppercase text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/10">
-            About Me
-          </span>
-          <h1 className="text-5xl md:text-8xl font-extrabold mb-8 leading-tight tracking-tight text-transparent bg-clip-text bg-linear-to-r from-white from-0% to-primary to-100%">
-            Crafting Scalable <br /> Digital Experiences
-          </h1>
-
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Full Stack MERN Developer specializing in building high-performance
-            web applications with modern architecture and AI-driven precision.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        heading="Crafting Scalable Digital Experiences"
+        description=" Full Stack MERN Developer specializing in building high-performance web applications with modern architecture and AI-driven precision."
+        badge="About Me"
+        buttons={[{ href: "/projects", label: "View My Work" }]}
+      />
 
       {/* WHO AM I SECTION */}
       <section
@@ -119,47 +100,7 @@ export default function AboutPage() {
       </section>
 
       {/* EXPERIENCE SECTION */}
-      <section
-        className="py-24 px-6 md:px-20 max-w-7xl mx-auto"
-        id="experience"
-      >
-        <div className="mb-12 space-y-2">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Professional Experience
-          </h2>
-          <p className="text-slate-400">
-            A timeline of my professional journey in software engineering.
-          </p>
-        </div>
-        <div className="space-y-8">
-          {experiences.map((experience, index) => (
-            <div
-              key={index}
-              className="relative pl-8 border-l-2 border-primary/20"
-            >
-              <div className="absolute -left-2.5 top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark"></div>
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                    {experience.role}
-                  </h3>
-                  <p className="text-primary font-semibold">
-                    {experience.company}
-                  </p>
-                </div>
-                <span className="text-sm font-medium text-slate-500 bg-slate-100 dark:bg-primary/10 dark:text-primary px-3 py-1 rounded-full w-fit">
-                  {experience.duration}
-                </span>
-              </div>
-              <ul className="space-y-2 text-slate-600 dark:text-slate-400 list-disc ml-4">
-                {experience.points.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Experience />
 
       {/* SKILLS SECTION */}
       <section className="py-24 px-4">
@@ -493,34 +434,11 @@ export default function AboutPage() {
       </section>
 
       {/* CTA SECTION */}
-      <section
-        className="py-20 md:py-24 px-6 md:px-20 max-w-7xl mx-auto text-center"
-        id="contact"
-      >
-        <div className="rounded-3xl bg-primary px-8 py-16 md:p-20 relative overflow-hidden shadow-2xl shadow-primary/30">
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="relative z-10 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
-              Ready to start your next big project?
-            </h2>
-            <p className="text-white/80 text-base md:text-lg max-w-xl mx-auto">
-              I&apos;m open to new opportunities and collaborations. Let&apos;s
-              build something amazing together.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-white text-primary px-8 py-4 font-bold hover:bg-slate-50 transition-colors group"
-            >
-              Get in Touch
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTA
+        heading="Ready to start your next big project?"
+        description="I'm open to new opportunities and collaborations. Let's build something amazing together."
+        button={{ href: "/contact", label: "Get in Touch" }}
+      />
     </>
   );
 }

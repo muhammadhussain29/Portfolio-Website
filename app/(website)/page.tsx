@@ -20,13 +20,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import {
-  experiences,
   projects,
   stackItems,
   leftServices,
   rightServices,
   testimonials,
 } from "@/constant/data";
+import CTA from "@/components/website/CTA";
+import Experience from "@/components/website/Experience";
 
 export default function Home() {
   return (
@@ -221,47 +222,7 @@ export default function Home() {
       </section>
 
       {/* --- EXPERIENCE SECTION --- */}
-      <section
-        className="py-24 px-6 md:px-20 max-w-7xl mx-auto"
-        id="experience"
-      >
-        <div className="mb-12 space-y-2">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Professional Experience
-          </h2>
-          <p className="text-slate-400">
-            A timeline of my professional journey in software engineering.
-          </p>
-        </div>
-        <div className="space-y-8">
-          {experiences.map((experience, index) => (
-            <div
-              key={index}
-              className="relative pl-8 border-l-2 border-primary/20"
-            >
-              <div className="absolute -left-2.5 top-0 size-5 rounded-full bg-primary border-4 border-background-light dark:border-background-dark"></div>
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                    {experience.role}
-                  </h3>
-                  <p className="text-primary font-semibold">
-                    {experience.company}
-                  </p>
-                </div>
-                <span className="text-sm font-medium text-slate-500 bg-slate-100 dark:bg-primary/10 dark:text-primary px-3 py-1 rounded-full w-fit">
-                  {experience.duration}
-                </span>
-              </div>
-              <ul className="space-y-2 text-slate-600 dark:text-slate-400 list-disc ml-4">
-                {experience.points.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Experience />
 
       {/* --- PROJECTS SECTION --- */}
       <section className="py-24 px-6 md:px-20 max-w-7xl mx-auto" id="projects">
@@ -485,32 +446,11 @@ export default function Home() {
       </section>
 
       {/* --- CONTACT SECTION --- */}
-      <section
-        className="py-24 px-6 md:px-20 max-w-7xl mx-auto text-center"
-        id="contact"
-      >
-        <div className="rounded-3xl bg-primary px-8 py-16 md:p-20 relative overflow-hidden shadow-2xl shadow-primary/30">
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
-          <div className="relative z-10 space-y-8">
-            <h2 className="text-4xl md:text-5xl font-black mx-auto text-white leading-tight">
-              Ready to start your next big project?
-            </h2>
-            <p className="text-white/80 text-lg max-w-xl mx-auto">
-              I&apos;m currently looking for new opportunities and
-              collaborations. Drop me a line and let&apos;s build something
-              amazing together.
-            </p>
-            <Link
-              className="mx-auto inline-flex items-center gap-2 rounded-lg border-2 px-10 py-4 font-bold group hover:scale-105 transition-all duration-300"
-              href="/contact"
-            >
-              Get in Touch{" "}
-              <ArrowRight className="group-hover:translate-x-1 transition-all duration-300" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTA
+        heading="Ready to start your next big project?"
+        description=" I'm currently looking for new opportunities and collaborations. Drop me a line and let's build something amazing together."
+        button={{ href: "/contact", label: "Get in Touch" }}
+      />
     </>
   );
 }
