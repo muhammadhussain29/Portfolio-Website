@@ -19,14 +19,14 @@ import { useRouter } from "next/navigation";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: Home },
-  { name: "General Info", href: "/dashboard/General-Info", icon: Info },
-  { name: "Projects", href: "/dashboard/Projects", icon: FolderKanban },
-  { name: "Experience", href: "/dashboard/Experience", icon: BriefcaseBusiness },
-  { name: "Blogs", href: "/dashboard/Blogs", icon: FileText },
-  { name: "Tech Stack", href: "/dashboard/Tech-Stack", icon: Code },
-  { name: "Services", href: "/dashboard/Services", icon: Wrench },
-  { name: "Testimonials", href: "/dashboard/Testimonials", icon: Star },
-  { name: "Settings", href: "/dashboard/Settings", icon: Settings },
+  { name: "General Info", href: "/dashboard/general-info", icon: Info },
+  { name: "Projects", href: "/dashboard/projects", icon: FolderKanban },
+  { name: "Experience", href: "/dashboard/experience", icon: BriefcaseBusiness },
+  { name: "Blogs", href: "/dashboard/blogs", icon: FileText },
+  { name: "Tech Stack", href: "/dashboard/tech-stack", icon: Code },
+  { name: "Services", href: "/dashboard/services", icon: Wrench },
+  { name: "Testimonials", href: "/dashboard/testimonials", icon: Star },
+  { name: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 
 const Sidebar = ({
