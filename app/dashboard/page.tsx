@@ -1,18 +1,20 @@
 "use client";
 
+import Breadcrumb from "@/components/ui/BreadCrumb";
 import RevenueChart from "@/components/dashboard/RevenueCart";
 import {
-  Car,
-  ShoppingCart,
-  Search,
-  TrendingUp,
-  Clock,
-  XCircle,
-  Plus,
-  Eye,
   ArrowRight,
+  BriefcaseBusiness,
+  FileText,
+  FolderKanban,
+  LayoutGrid,
+  MessageSquareQuote,
+  Plus,
+  Settings,
+  Wrench,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import type { ReactNode } from "react";
 
 const revenueData = [
   { monthName: "Jan", revenue: 12000 },
@@ -27,82 +29,113 @@ export default function DashboardPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen space-y-10">
-      {/* ================= HEADER ================= */}
-      <div>
-        <h1 className="md:text-3xl text-2xl font-bold text-primary">Dashboard Overview</h1>
-        <p className="md:text-base text-sm text-gray-500 mt-1">
-          Monitor your vehicle inventory and customer activity.
-        </p>
+    <div className="min-h-screen space-y-8">
+      {/* Header */}
+      <div className="">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div className="space-y-2">
+            <h1 className="md:text-3xl text-2xl font-bold text-primary">
+              Dashboard Overview
+            </h1>
+            <p className="md:text-base text-sm text-gray-500">
+              Manage portfolio content, monitor activity, and keep your profile
+              up to date.
+            </p>
+            <Breadcrumb className="pt-1" />
+          </div>
+        </div>
       </div>
 
-      {/* ================= STATS CARDS ================= */}
-      <div className="grid lg:grid-cols-3 sm:grid-cols-2  gap-6">
+      {/* Stats */}
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6">
         <StatCard
-          icon={<Car />}
-          title="Total Vehicles"
-          value="128"
-          trend="+32%"
+          icon={<FolderKanban size={20} />}
+          title="Total Projects"
+          value="15+"
+          trend="+2 this month"
         />
         <StatCard
-          icon={<ShoppingCart />}
-          title="Purchase Requests"
-          value="54"
-          trend="+12%"
+          icon={<BriefcaseBusiness size={20} />}
+          title="Experience Entries"
+          value="2"
+          trend="Updated recently"
         />
         <StatCard
-          icon={<Search />}
-          title="Find My Car"
-          value="31"
-          trend="-10%"
+          icon={<Wrench size={20} />}
+          title="Services Listed"
+          value="6"
+          trend="All active"
         />
         <StatCard
-          icon={<TrendingUp />}
-          title="Sold This Month"
-          value="22"
-          trend="+19%"
+          icon={<FileText size={20} />}
+          title="Blogs Published"
+          value="8"
+          trend="+1 this month"
         />
         <StatCard
-          icon={<Clock />}
-          title="Pending Requests"
-          value="9"
-          trend="+12%"
+          icon={<MessageSquareQuote size={20} />}
+          title="Testimonials"
+          value="4"
+          trend="3 published"
         />
         <StatCard
-          icon={<XCircle />}
-          title="Rejected Requests"
-          value="5"
-          trend="-5%"
+          icon={<LayoutGrid size={20} />}
+          title="Tech Stack Items"
+          value="13"
+          trend="Synced with website"
         />
       </div>
 
-      {/* ================= QUICK ACTIONS ================= */}
-      <div className="bg-white rounded-2xl md:px-8 md:py-4 px-4 py-2 shadow-sm">
-        <h2 className="text-xl font-semibold text-primary mb-6">Quick Actions</h2>
+      {/* Quick Actions */}
+      <div className="bg-white rounded-2xl md:px-8 md:py-6 px-4 py-4 shadow-sm border border-slate-200">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-semibold text-primary">Quick Actions</h2>
+        </div>
 
         <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6">
           <ActionCard
-            icon={<Plus />}
-            title="Add New Vehicle"
-            onClick={() => router.push("/dashboard/vehicles-listing")}
+            icon={<Plus size={18} />}
+            title="Add New Project"
+            onClick={() => router.push("/dashboard/projects")}
           />
-
           <ActionCard
-            icon={<ShoppingCart />}
-            title="View Purchase Requests"
-            onClick={() => router.push("/dashboard/purchase-requests")}
+            icon={<FileText size={18} />}
+            title="Manage Blogs"
+            onClick={() => router.push("/dashboard/blogs")}
           />
-
           <ActionCard
-            icon={<Eye />}
-            title="View Find My Car"
-            onClick={() => router.push("/dashboard/find-car")}
+            icon={<Wrench size={18} />}
+            title="Manage Services"
+            onClick={() => router.push("/dashboard/services")}
+          />
+          <ActionCard
+            icon={<BriefcaseBusiness size={18} />}
+            title="Manage Experience"
+            onClick={() => router.push("/dashboard/experience")}
+          />
+          <ActionCard
+            icon={<LayoutGrid size={18} />}
+            title="Update Tech Stack"
+            onClick={() => router.push("/dashboard/tech-stack")}
+          />
+          <ActionCard
+            icon={<Settings size={18} />}
+            title="Dashboard Settings"
+            onClick={() => router.push("/dashboard/settings")}
           />
         </div>
       </div>
 
-      {/* ================= REVENUE CHART ================= */}
-      <RevenueChart data={revenueData} />
+      {/* Revenue / Growth Chart */}
+      <div>
+        <div className="mb-3">
+          <h2 className="text-xl font-semibold text-primary">Growth Snapshot</h2>
+          <p className="text-sm text-gray-500">
+            Revenue-style activity trend for your admin dashboard.
+          </p>
+        </div>
+        <RevenueChart data={revenueData} />
+      </div>
     </div>
   );
 }
@@ -116,7 +149,7 @@ function StatCard({
   iconColor = "bg-primary-200",
   trend = "",
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   value: string;
   iconColor?: string;
@@ -164,11 +197,7 @@ function StatCard({
           </span>
 
           {/* Optional Trend (remove if not needed) */}
-          <p
-            className={`text-xs mt-2 ${trend.includes("+") ? "text-green-500" : trend.includes("-") ? "text-red-500" : ""}`}
-          >
-            {trend ? `${trend} this month` : ""}
-          </p>
+          <p className="text-xs mt-2 text-slate-500">{trend}</p>
         </div>
       </div>
     </div>
@@ -180,7 +209,7 @@ function ActionCard({
   title,
   onClick,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   onClick: () => void;
 }) {
