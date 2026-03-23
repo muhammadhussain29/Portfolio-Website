@@ -68,11 +68,11 @@ const Sidebar = ({
         {/* ===== Logo ===== */}
         <div>
           <div className="px-6 py-6 flex items-center justify-center">
-            <h1 className="text-2xl font-bold flex items-center gap-2">
+            <h1 className="text-2xl font-bold flex flex-col items-center gap-2">
               <span className="bg-primary text-white px-2 py-1 rounded-md">
-                Rev
+                MHM
               </span>
-              <span className="text-slate-800">Auto</span>
+              {/* <span className="text-slate-800">Hussain</span> */}
             </h1>
 
             {/* Close Button (Mobile Only) */}
