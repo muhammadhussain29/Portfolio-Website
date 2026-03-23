@@ -9,7 +9,7 @@ const Layout = ({children}: {children: React.ReactNode}) => {
   const [openSidebar, setOpenSidebar] = useState<boolean>(true);
   
   return (
-    <div className='min-h-screen w-full flex'>
+    <div className='min-h-screen w-full flex bg-background-light'>
         <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
         <main className='flex-1 max-w-screen'>
         <Header openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />

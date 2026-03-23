@@ -16,9 +16,9 @@ import Link from "next/link";
 
 export default function GeneralInfoPage() {
   return (
-    <div className="min-h-screen">
+    <div className="">
       {/* Header */}
-      <div className="p-6 md:p-8">
+      <div className="">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold text-primary">General Info</h1>
