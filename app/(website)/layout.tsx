@@ -10,7 +10,7 @@ export default function WebsiteLayout({
   return (
     <div>
         <Header />
-        <main className="min-h-[80vh]">
+        <main className="min-h-[80vh] bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
             {children}
         </main>
         <Footer />
