@@ -1,0 +1,15 @@
+export const stackItems = [
+    { label: "HTML", icon: "logos:html-5" },
+    { label: "CSS", icon: "logos:css-3" },
+    { label: "JavaScript", icon: "logos:javascript" },
+    { label: "TypeScript", icon: "devicon:typescript" },
+    { label: "React", icon: "logos:react" },
+    { label: "Next.js", icon: "logos:nextjs-icon" },
+    { label: "Node.js", icon: "logos:nodejs-icon" },
+    { label: "Express.js", icon: "logos:express", iconClass: "invert-100" },
+    { label: "MongoDB", icon: "logos:mongodb" },
+    { label: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+    { label: "Bootstrap", icon: "logos:bootstrap" },
+    { label: "NPM", icon: "logos:npm-icon" },
+    { label: "GitHub", icon: "logos:github-icon", iconClass: "invert-100" },
+  ];
