@@ -1,7 +1,7 @@
 "use client";
 
 import Breadcrumb from "@/components/ui/BreadCrumb";
-import { stackItems } from "@/constant/data";
+import { stackItems } from "@/constant/stack";
 import { Icon } from "@iconify/react";
 import { ArrowRight, Trash2 } from "lucide-react";
 import { useState } from "react";

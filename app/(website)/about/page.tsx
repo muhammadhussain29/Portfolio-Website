@@ -5,15 +5,14 @@ import CTA from "@/components/website/CTA";
 import Experience from "@/components/website/Experience";
 import {
   BotIcon,
-  BrainIcon,
   Calendar,
-  EyeIcon,
   GraduationCapIcon,
   LayersIcon,
   RocketIcon,
   TerminalIcon,
-  TrendingUpIcon,
 } from "lucide-react";
+import {education} from "@/constant/education";
+import {stackItems} from "@/constant/stack";
 
 export default function AboutPage() {
   return (
@@ -119,22 +118,12 @@ export default function AboutPage() {
                 Frontend
               </h3>
               <ul className="space-y-3 text-slate-400">
-                <li className="flex justify-between">
-                  <span>React.js</span>{" "}
-                  <span className="text-blue-500 text-xs">Expert</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Next.js</span>{" "}
-                  <span className="text-blue-500 text-xs">Advanced</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Tailwind CSS</span>{" "}
-                  <span className="text-blue-500 text-xs">Expert</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Redux Toolkit</span>{" "}
-                  <span className="text-blue-500 text-xs">Proficient</span>
-                </li>
+                {stackItems.filter((item) => item.category === "frontend" && !["HTML", "CSS", "Bootstrap"].includes(item.label)).map((item) => (
+                  <li className="flex justify-between" key={item.label}>
+                    <span>{item.label}</span>{" "}
+                    <span className={`text-blue-500 text-xs`}>{item.level}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* <!-- Backend --> */}
@@ -144,22 +133,12 @@ export default function AboutPage() {
                 Backend
               </h3>
               <ul className="space-y-3 text-slate-400">
-                <li className="flex justify-between">
-                  <span>Node.js</span>{" "}
-                  <span className="text-green-500 text-xs">Expert</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Express.js</span>{" "}
-                  <span className="text-green-500 text-xs">Expert</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>REST APIs</span>{" "}
-                  <span className="text-green-500 text-xs">Advanced</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Socket.io</span>{" "}
-                  <span className="text-green-500 text-xs">Intermediate</span>
-                </li>
+                {stackItems.filter((item) => item.category === "backend").map((item) => (
+                  <li className="flex justify-between" key={item.label}>
+                    <span>{item.label}</span>{" "}
+                    <span className={`text-green-500 text-xs`}>{item.level}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* <!-- Database --> */}
@@ -169,22 +148,12 @@ export default function AboutPage() {
                 Database
               </h3>
               <ul className="space-y-3 text-slate-400">
-                <li className="flex justify-between">
-                  <span>MongoDB</span>{" "}
-                  <span className="text-amber-500 text-xs">Advanced</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>PostgreSQL</span>{" "}
-                  <span className="text-amber-500 text-xs">Intermediate</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Firebase</span>{" "}
-                  <span className="text-amber-500 text-xs">Advanced</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Redis</span>{" "}
-                  <span className="text-amber-500 text-xs">Basic</span>
-                </li>
+                {stackItems.filter((item) => item.category === "database").map((item) => (
+                  <li className="flex justify-between" key={item.label}>
+                    <span>{item.label}</span>{" "}
+                    <span className={`text-amber-500 text-xs`}>{item.level}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* <!-- Tools --> */}
@@ -194,22 +163,12 @@ export default function AboutPage() {
                 Tools
               </h3>
               <ul className="space-y-3 text-slate-400">
-                <li className="flex justify-between">
-                  <span>Docker</span>{" "}
-                  <span className="text-purple-500 text-xs">Familiar</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Git/GitHub</span>{" "}
-                  <span className="text-purple-500 text-xs">Expert</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Postman</span>{" "}
-                  <span className="text-purple-500 text-xs">Advanced</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>AWS (S3/EC2)</span>{" "}
-                  <span className="text-purple-500 text-xs">Intermediate</span>
-                </li>
+                {stackItems.filter((item) => item.category === "tools").map((item) => (
+                  <li className="flex justify-between" key={item.label}>
+                    <span>{item.label}</span>{" "}
+                    <span className={`text-purple-500 text-xs`}>{item.level}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -230,14 +189,14 @@ export default function AboutPage() {
                   <GraduationCapIcon className="text-primary" size={70} />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-2">
-                  BS in Computer Science
+                  {education[0].degree}
                 </h3>
                 <p className="text-primary font-semibold text-lg mb-4">
-                  National University of Modern Languages
+                  {education[0].institution}
                 </p>
                 <div className="flex items-center gap-2 text-slate-500 text-sm font-medium">
                   <Calendar className="text-sm" size={16} />
-                  2022 - 2026
+                  {education[0].period}
                 </div>
               </div>
               {/* <!-- FYP Details --> */}
@@ -247,60 +206,23 @@ export default function AboutPage() {
                     <RocketIcon className="text-xl" size={20} />
                   </span>
                   <h4 className="text-xl font-bold text-white uppercase tracking-wider">
-                    Final Year Project (FYP)
+                    {education[0].FYP}
                   </h4>
                 </div>
                 <div className="space-y-6">
                   <p className="text-slate-400 text-lg leading-relaxed italic">
-                    &quot;AI-powered predictive analytics dashboard for
-                    e-commerce, bridging high-level data and actionable
-                    insights.&quot;
+                    {education[0].FYP_Description}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
-                      <LayersIcon className="text-primary" size={20} />
-                      <div className="text-sm">
-                        <span className="block text-white font-bold mb-1">
-                          Architecture
-                        </span>
-                        <span className="text-slate-400">
-                          MERN Stack Platform
-                        </span>
+                    {education[0].StatsCard.map((item) => (
+                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10" key={item.title}>
+                        <item.icon className="text-primary" size={20} />
+                        <div className="text-sm">
+                          <span className="block text-white font-bold mb-1">{item.title}</span>
+                          <span className="text-slate-400">{item.value}</span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
-                      <BrainIcon className="text-primary" size={20} />
-                      <div className="text-sm">
-                        <span className="block text-white font-bold mb-1">
-                          Intelligence
-                        </span>
-                        <span className="text-slate-400">
-                          Python-based ML Models
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
-                      <TrendingUpIcon className="text-primary" size={20} />
-                      <div className="text-sm">
-                        <span className="block text-white font-bold mb-1">
-                          Core Function
-                        </span>
-                        <span className="text-slate-400">
-                          User Behavior Forecasting
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
-                      <EyeIcon className="text-primary" size={20} />
-                      <div className="text-sm">
-                        <span className="block text-white font-bold mb-1">
-                          Outcome
-                        </span>
-                        <span className="text-slate-400">
-                          Data-driven Optimization
-                        </span>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>

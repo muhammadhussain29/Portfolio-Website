@@ -25,9 +25,13 @@ const HeroSection = ({
       <div className="absolute bottom-1/4 right-10 w-16 h-16 border border-primary/20 rounded-full animate-float delay-700 hidden md:block"></div>
 
       <div className="relative z-10 text-center max-w-4xl mx-auto">
-        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider uppercase text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/10">
+        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary border border-primary/20 w-fit">
+        <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
           {badge}
-        </span>
+        </div>
         <h1 className="text-5xl md:text-8xl font-extrabold mb-8 leading-tight tracking-tight text-transparent bg-clip-text bg-linear-to-r from-white from-0% to-primary to-100%">
           {heading}
         </h1>

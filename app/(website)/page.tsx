@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowRight,
   Github,
   Linkedin,
   Mail,
@@ -19,14 +18,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import {
-  projects,
-  stackItems,
-  testimonials,
-} from "@/constant/data";
 import CTA from "@/components/website/CTA";
 import Experience from "@/components/website/Experience";
 import Services from "@/components/website/Services";
+import {stackItems} from "@/constant/stack";
+import {FeaturedProjects} from "@/constant/projects";
+import {testimonials} from "@/constant/testimonial";
+import ProjectCard from "@/components/website/ProjectCard";
 
 export default function Home() {
   return (
@@ -41,7 +39,7 @@ export default function Home() {
           <div className="flex md:gap-16 gap-8 flex-wrap items-center text-left">
             {/* left side */}
             <div className="space-y-6 order-2 md:order-1">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary border border-primary/20 w-fit">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary border border-primary/20 w-fit">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -234,47 +232,8 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/10 hover:shadow-xl transition-all"
-            >
-              <div className="relative aspect-video w-full overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={project.preview}
-                  alt={project.title}
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-primary/10 text-primary text-[10px] font-bold uppercase px-2 py-1 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  {project.description}
-                </p>
-                <a
-                  className="inline-flex items-center text-primary font-semibold text-sm hover:underline"
-                  href="#"
-                >
-                  View Project Details
-                  <span className=" ml-1 text-sm">
-                    <ArrowRight />
-                  </span>
-                </a>
-              </div>
-            </div>
+          {FeaturedProjects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
       </section>

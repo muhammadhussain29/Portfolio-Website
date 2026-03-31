@@ -2,6 +2,7 @@
 
 import CTA from "@/components/website/CTA";
 import HeroSection from "@/components/website/HeroSection";
+import { toast } from "react-toastify";
 import {
   Github,
   Linkedin,
@@ -35,7 +36,7 @@ const quickContactCards: QuickContactCard[] = [
     id: "phone",
     icon: Phone,
     title: "Call Me",
-    description: "+92 (300) 000 0000",
+    description: "+92-315-7332765",
   },
   {
     id: "linkedin",
@@ -48,6 +49,12 @@ const quickContactCards: QuickContactCard[] = [
 ];
 
 export default function ContactPage() {
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    toast.info("Form Not Working Currently, Please Contact Me Through Email");
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -138,7 +145,7 @@ export default function ContactPage() {
                     Location
                   </p>
                   <p className="text-slate-200 mt-1">
-                    Karachi, Pakistan (Remote Worldwide)
+                    Hyderabad, Pakistan (Remote Worldwide)
                   </p>
                 </div>
               </div>
@@ -177,14 +184,21 @@ export default function ContactPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-64 border border-white/10">
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0"
                 role="img"
-                aria-label="Map showing Karachi, Pakistan"
-                style={{
-                  backgroundImage:
-                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuATXZrzFaUMY7ONa_j4qMJrUgPPa04O6h4ExfZZpIYONwm3PXfVq8AOByvZG5LspB179J7DDjBvNLDyFXEIGQIGIANke8Xa9eonLKURDcROI711q9D4xWZtsboyFIJwTaBPBvqHN9eEVABvNXOVQyYHQwuz02jaz3-dHwx58mYVSNS5yICYPl4RCL_tvTw-H8nkyu-bQufiNpoud_u5A_x3-_maRXa2yIPHEl3lgUHIkjXRabjH9VvTVlAhO9QV71uoZk2OaCjTSw')",
-                }}
-              />
+                aria-label="Map showing Hyderabad, Pakistan"
+              >
+                <iframe
+                  title="Hyderabad Map"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=Hyderabad,Sindh,Pakistan&output=embed"
+                ></iframe>
+              </div>
               <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
             </div>
           </div>
@@ -193,7 +207,7 @@ export default function ContactPage() {
           <div className="lg:col-span-3 w-full min-w-0">
             <div className="bg-primary/5 backdrop-blur-2xl border border-primary/20 p-8 md:p-10 rounded-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[60px] -mr-16 -mt-16 pointer-events-none" />
-              <form action="#" className="space-y-6 relative z-10">
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label
